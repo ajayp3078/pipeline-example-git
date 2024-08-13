@@ -12,25 +12,25 @@ pipeline{
     stages{
         stage("compile"){
             steps{
-                sh 'javac Test.java'
-                sh 'echo "${VERSION_NAME}"'
+                bat 'javac Test.java'
+                bat 'echo "${VERSION_NAME}"'
             }
         }
         stage("run"){
             steps{
-                sh 'java Test'
+                bat 'java Test'
             }
         }
     }
     post{
         always{
-            sh 'echo "always"'
+            bat 'echo "always"'
         }
         success{
-            sh 'echo "success"'
+            bat 'echo "success"'
         }
         failure{
-            sh 'echo "failure"'
+            bat 'echo "failure"'
         }
     }
 
